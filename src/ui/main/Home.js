@@ -222,7 +222,6 @@ const styles = StyleSheet.create({
   }
 });
 const mapStateToProps = state => {
-  //alert("home" + JSON.stringify(state.HomeReducer.get("day")));
   return {
     banner_arr: state.HomeReducer.get("banner"),
     money_arr: state.HomeReducer.get("money"),
