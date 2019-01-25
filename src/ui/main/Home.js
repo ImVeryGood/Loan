@@ -46,7 +46,7 @@ class Home extends Component {
     }
     return itemArr;
   }
-  _dayItem(item, index) {
+  _dayItem(item, index: number) {
     const { setDateChecked } = this.props;
     return (
       <TouchableOpacity
@@ -69,7 +69,7 @@ class Home extends Component {
     );
   }
 
-  _moneyItem(item, index) {
+  _moneyItem(item, index: number) {
     const { setMoneyChecked } = this.props;
     return (
       <TouchableWithoutFeedback

@@ -1,10 +1,22 @@
 import createSagaMiddleware from "redux-saga";
-import { createStore, applyMiddleware } from "redux";
-import appReducer from "../reducer/CombineReducer";
+import { createStore, applyMiddleware, compose } from "redux";
 import rootSaga from "../../saga/CombineSaga";
-import homeSaga from "../../saga/HomeSaga";
+import { persistStore } from "redux-persist";
+import reducers from "../reducer/CombineReducer";
+import storage from "redux-persist/es/storage";
 
+const config = {
+  key: "root",
+  storage
+};
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(appReducer, applyMiddleware(sagaMiddleware));
+//设置多个中间件
+const middleWares = [sagaMiddleware];
+const enhances = [applyMiddleware(...middleWares)];
+const store = createStore(reducers, compose(...enhances));
+const persistor = persistStore(store);
 sagaMiddleware.run(rootSaga);
-export default store;
+module.exports = {
+  store,
+  persistor
+};

@@ -8,12 +8,12 @@ export const SetMoneyChecked_saga = "setMoneyChecked_saga";
 export const SetMoneyChecked = "setMoneyChecked";
 export const SetDateChecked = "SetDateChecked";
 export const SetDateChecked_saga = "SetDateChecked_saga";
-export const getBannerList = () => {
+const getBannerList = () => {
   return {
     type: GetBannerList_saga
   };
 };
-export const getMoneySaga = () => {
+const getMoneySaga = () => {
   return {
     type: GetMoneyList_saga
   };
